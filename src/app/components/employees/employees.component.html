@@ -1,0 +1,89 @@
+<h3>Employee Details:</h3>
+<table border="3" style="height: 50px;width: 400; font:500">
+    <tr>
+        <th>
+            Name
+        </th>
+        <th>
+            Age
+        </th>
+        <th>
+            Subject
+        </th>
+        <th>
+            Date Of Birth
+        </th>
+        <th>
+            Gender
+        </th>
+    </tr>
+    <tr *ngFor="let i of employeeDetails" >
+        <td>
+            {{i["name"] | uppercase | genderpipe : i.gender}}
+        </td>
+        <td>
+            {{i["age"]}}
+        </td>
+        <td>
+            {{i["subject"]}}
+        </td>
+        <td>
+            {{i["dob"] | date:"fullDate"}}
+        </td>
+        <td>
+            {{i["gender"] }}
+        </td>
+    </tr>
+    <tr *ngIf="employeeDetails.length ==0">
+        <b>No Rows to display :(</b>
+    </tr>
+</table>
+<br>
+<button type="submit" class="btn btn-success btn-lg" (click)="showFaculty = true" *ngIf="showFaculty == false">Show Faculty</button>
+<button type="submit" class="btn btn-danger btn-lg" (click)="showFaculty = false" *ngIf="showFaculty == true">Hide Faculty</button>
+
+<br>
+<div *ngIf="showFaculty == true">Faculty Name: <b>{{facuty}}</b></div>
+<br>
+<br>
+<h3>Using interpolation from objects</h3>
+
+<div>Name: <b>{{prod.name}}</b></div>
+<div>Category: <b>{{prod.category}}</b></div>
+<div>Cost: <b>{{prod.cost}}</b></div>
+
+<br>
+<br>
+<h3>Using interpolation from array of objects:</h3>
+<table border="3" style="height: 50px;width: 200px; font:500">
+    <tr>
+        <th>
+            Name
+        </th>
+        <th>
+            Cost
+        </th>
+        <th>
+            Subject
+        </th>
+    </tr>
+    <tr *ngFor="let i of products" >
+        <td>
+            {{i["name"]}}
+        </td>
+        <td>
+            {{i["cost"]}}
+        </td>
+        <td>
+            {{i["category"]}}
+        </td>
+    </tr>
+    <tr *ngIf="employeeDetails.length ==0">
+        <b>No Rows to display :(</b>
+    </tr>
+</table>
+<br>
+<button class="btn btn-primary" (click)="myFunction()">Click Me</button> &nbsp;&nbsp;
+<button class="btn btn-danger" (click)="deleteProduct(100)">Delete</button>&nbsp;&nbsp;
+<button class="btn btn-success" (click)="editProduct(100,'Note2')">Edit</button>&nbsp;&nbsp;
+<br>

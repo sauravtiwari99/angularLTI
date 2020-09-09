@@ -1,0 +1,3 @@
+
+<button [ngClass]="{'like-button':showLiked }" (click) = "likeClickedFlag = !likeClickedFlag" (click)="likeClicked()">Like | <span>{{likes_counter}}</span></button>
+<button [ngClass]="{'dislike-button':showDisLiked}" (click) = "dislikeClickedFlag = !dislikeClickedFlag" (click)="dislikeClicked()">Disike | <span>{{dislikes_counter}}</span></button>

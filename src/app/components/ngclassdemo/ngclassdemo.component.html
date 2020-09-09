@@ -1,0 +1,10 @@
+<h4>NgStyle</h4>
+<ul *ngFor="let person of people">
+  <li [ngStyle]="{'color':getColor(person.country)}"> {{ person.name }} ({{ person.country }}) (1)
+  </li>
+</ul>
+
+<br>
+<br>
+
+<div [ngStyle]="{'color':test=='sad'?'blue':'black'}">Happy</div>

@@ -1,0 +1,41 @@
+<button class="btn btn-success" (click)="addUser()">Add User</button> &nbsp;&nbsp;
+<button class="btn btn-success">Log Off</button>
+
+
+<br>
+<br>
+<h3>Users Table</h3>
+<br>
+
+<table border="5" class="table">
+<tr>
+    <th>
+        ID
+    </th>
+    <th>
+        First Name
+    </th>
+    <th>
+        Last Name
+    </th>
+    <th>
+        Email ID
+    </th>
+    <th>
+        Delete
+    </th>
+    <th>
+        Edit
+    </th>
+</tr>
+<tr *ngFor="let i of listOfUsers">
+    <td>{{i.id}}</td>
+    <td>{{i.firstname}}</td>
+    <td>{{i.lastname}}</td>
+    <td>{{i.email}}</td>
+    <td><button class="btn btn-danger btn-lg" (click)="deleteUser(i.id)" > X</button></td>
+    <td><button class="btn btn-warning btn-lg" (click)="editUser(i.id)" > Edit</button></td>
+
+
+</tr>
+</table>

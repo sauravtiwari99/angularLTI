@@ -1,0 +1,43 @@
+<h3>Reactive Forms Demo</h3>
+<form [formGroup]="form" (ngSubmit)="addUser(form)">
+
+        <div class= "form-group">
+            <label for="Name">Name :</label>
+            <input type="text" formControlName="name" name="name" value="" class="form-control"/>
+        </div>
+        <div *ngIf="form.get('name').hasError('required') && form.get('name').touched" class="alert alert-danger">
+            This field cannot be Empty
+        </div>
+        <div *ngIf="form.get('name').hasError('pattern') && form.get('name').touched" class="alert alert-danger">
+            Please enter alphabets only
+        </div>
+
+        <div class= "form-group">
+            <label for="Name">Contact :</label>
+            <input type="text" formControlName="contact" name="contact" value="" class="form-control"/>
+        </div>
+
+        <div *ngIf="form.get('contact').hasError('required') && form.get('contact').touched" class="alert alert-danger">
+            This field cannot be Empty
+        </div>
+        <div *ngIf="form.get('contact').hasError('pattern') && form.get('contact').touched" class="alert alert-danger">
+            Please enter Numbers only
+        </div>
+
+        <div class= "form-group">
+            <label for="Name">Email :</label>
+            <input type="text" formControlName="email" name="email" value="" class="form-control"/>
+        </div>
+
+        <div *ngIf="form.get('email').hasError('required') && form.get('email').touched" class="alert alert-danger">
+            This field cannot be Empty
+        </div>
+        <div *ngIf="form.get('email').hasError('email') && form.get('email').touched" class="alert alert-danger">
+            Please enter Valid Email ID only
+        </div>
+       
+        <button type="submit" [disabled]="form.invalid" class="btn btn-success"> Add New User</button>
+</form>
+
+<br>
+{{form.value | json}}

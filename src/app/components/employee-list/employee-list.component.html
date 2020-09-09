@@ -1,0 +1,88 @@
+<div style="margin-left: 5%;">
+    <form>
+        <table>
+            <tr>
+                <th>
+                    ID
+                </th>
+                <td>
+                    <input type = "number" #eventID/>
+                </td>
+            </tr>
+
+            <tr>
+                <th>
+                    Name
+                </th>
+                <td>
+                    <input type = "text" #eventName/>
+                </td>
+            </tr>
+
+            <tr>
+                <th>
+                    Description
+                </th>
+                <td>
+                    <input type = "text" #eventDesc/>
+                </td>
+            </tr>
+
+            
+            <tr>
+                <th>
+                    Spealker
+                </th>
+                <td>
+                    <input type = "text" #eventSpeak/>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <button type='button' class="btn btn-success" (click)="AddRecord(eventID.value,eventName.value,eventDesc.value,eventSpeak.value)">Add</button>
+                </td>
+            </tr>
+        </table>
+    </form>
+</div>
+
+<br>
+<br>
+<div style="margin-left: 5%;">
+<h3>Employee List</h3>
+
+<button class ="btn btn-success" (click)="showEmpList()" (click)="showEmp = true" *ngIf="showEmp == false">Show Employees</button>
+<button class ="btn btn-danger" (click)="showEmp = false" *ngIf="showEmp == true">Hide Employees</button>
+
+<br>
+<br>
+
+<table class="table" *ngIf="showEmp == true" border="4" style="margin-left: 2%;" cellspacing="10" cellpadding="10">
+    <tr>
+        <th>
+            ID
+        </th>
+        <th>
+            Name
+        </th>
+        <th>
+            Description
+        </th>
+        <th>
+            Speaker
+        </th>    
+        <th>
+            Delete Data
+        </th>  
+    </tr>
+
+    <tr *ngFor = "let i of EmpList">
+        <td>{{i.id}}</td>
+        <td>{{i.name}}</td>
+        <td>{{i.description}}</td>
+        <td>{{i.speaker}}</td>
+        <td align="center"><button class="btn btn-danger btn-lg" (click)="deleteDetails(i)" (click)="showEmpList()"><b>X</b></button></td>
+
+    </tr>
+</table>
+</div>
